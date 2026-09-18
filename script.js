@@ -47,7 +47,7 @@ function displayBook() {
         deleteBtn.textContent = "REMOVE"
         deleteBtn.className = "bg-red-500 text-white p-3"
 
-        deleteBtn.addEventListener("click", (e) => {
+        deleteBtn.addEventListener("click", () => {
             const deleteCardIndex = myLibrary.findIndex((item) => item.id === book.id);
             myLibrary.splice(deleteCardIndex, 1);
             displayBook();
