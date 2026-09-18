@@ -43,7 +43,17 @@ function displayBook() {
         para.className = "pages m-auto"
         para.textContent = pages + " pages"
 
-        card.append(header, subHeader, para)
+        const deleteBtn = document.createElement("button")
+        deleteBtn.textContent = "REMOVE"
+        deleteBtn.className = "bg-red-500 text-white p-3"
+
+        deleteBtn.addEventListener("click", (e) => {
+            const deleteCardIndex = myLibrary.findIndex((item) => item.id === book.id);
+            myLibrary.splice(deleteCardIndex, 1);
+            displayBook();
+        });
+
+        card.append(header, subHeader, para, deleteBtn)
         parentContainer.append(card)
 
     }
